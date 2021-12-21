@@ -1,25 +1,52 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
+import './Components/style.css';
+import ClassComponent from './Components/ClassComponent';
+import Functional from './Components/Functional';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+ class App extends Component {
+     state = {
+       classComponents:false,
+       functionComponents:false
+     }
+   
+  
+
+  render() {
+    return (
+       <div>
+                    {/* <Functional/> */}
+
+        {/* <ClassComponent/> */}
+          
+          <h1 className='heading'> Styling using functional and class component </h1>
+
+          <button className="btn btn-function" onClick={()=> this.setState({functionComponents:!this.state.functionComponents})}> To see styling in functional component</button>  
+
+          <button className="btn btn-class" onClick={()=> this.setState({classComponents:!this.state.classComponents})}>  To see styling in class component</button>
+
+
+
+
+     {
+          this.state.classComponents ? 
+           <div> <ClassComponent/> </div> : null    
+      
+     }
+
+
+    {
+          this.state.functionComponents ? 
+           <div> <Functional/> </div> : null    
+      
+     }
+      </div>
+      
+    )
+  }
+
+ }
+export default App
+
+
